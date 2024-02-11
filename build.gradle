@@ -27,9 +27,10 @@ repositories {
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.10.2',
-            'com.github.javafaker:javafaker:1.0.2',
             'com.codeborne:selenide:6.19.1',
-            'io.qameta.allure:allure-selenide:2.25.0'
+            'com.github.javafaker:javafaker:1.0.2',
+            'io.qameta.allure:allure-selenide:2.25.0',
+            'org.aeonbits.owner:owner:1.0.12',
     )
 }
 

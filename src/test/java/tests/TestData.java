@@ -1,18 +1,20 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import config.ProjectConfig;
+import org.aeonbits.owner.ConfigFactory;
 import utils.RandomUtils;
 
 import static utils.RandomUtils.*;
 
 public class TestData {
-
+    ProjectConfig projectConfig = ConfigFactory.create(ProjectConfig.class);
     Faker faker = new Faker();
     RandomUtils randomUtils = new RandomUtils();
 
-    public String firstName = faker.name().firstName(),
-            lastName = faker.name().lastName(),
-            userEmail = faker.internet().emailAddress(),
+    public String firstName = projectConfig.firstName(),
+            lastName = projectConfig.lastName(),
+            userEmail = projectConfig.userEmail(),
             userGender = getRandomGender(),
             userPhoneNumber = faker.phoneNumber().subscriberNumber(10),
             setDayRandom = randomUtils.generateDayRandom,

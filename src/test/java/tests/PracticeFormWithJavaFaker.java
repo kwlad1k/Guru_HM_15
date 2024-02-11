@@ -25,7 +25,7 @@ public class PracticeFormWithJavaFaker extends TestBase {
                 .setDateOfBirth(testData.dayRandom, testData.monthRandom, testData.yearRandom)
                 .setUserSubjects(testData.usersubjects)
                 .setUserHobbies(testData.userHobbies)
-                .uploadPicture("kek.png")
+                .uploadPicture("img/kek.png")
                 .setCurrentAddress(testData.currentAddress)
                 .setState(testData.randomState)
                 .setCity(testData.randomCity)
@@ -38,7 +38,7 @@ public class PracticeFormWithJavaFaker extends TestBase {
                 .checkResultResponsive("Date of Birth", testData.setDayRandom + " " + testData.monthRandom + "," + testData.yearRandom)
                 .checkResultResponsive("Subjects", testData.usersubjects)
                 .checkResultResponsive("Hobbies", testData.userHobbies)
-                .checkResultResponsive("Picture", "kek.png")
+                .checkResultResponsive("Picture", "img/kek.png")
                 .checkResultResponsive("Address", testData.currentAddress)
                 .checkResultResponsive("State and City", testData.randomState + " " + testData.randomCity);
     }

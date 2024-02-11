@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-
 public class RandomUtils {
     Faker faker = new Faker();
 
