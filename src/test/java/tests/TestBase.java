@@ -20,6 +20,8 @@ public class TestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", System.getProperty("browser", "chrome"));
+        capabilities.setCapability("browserVersion", System.getProperty("browser_version", "100.0"));
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
