@@ -21,8 +21,7 @@ public class TestBase {
         Configuration.browserSize = driverConfig.browserSize();
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = System.setProperty("remoteLink", System.setProperty("remoteLink",
-                "https://user1:1234@selenoid.autotests.cloud/wd/hub"));
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
