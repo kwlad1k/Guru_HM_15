@@ -11,4 +11,6 @@ public interface ProjectConfig extends Config {
 
     @Key("user.email")
     String userEmail();
+    @Key("image.name")
+    String imageName();
 }
