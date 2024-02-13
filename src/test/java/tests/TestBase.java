@@ -21,11 +21,11 @@ public class TestBase {
         Configuration.browserSize = System.setProperty("browserSize", driverConfig.browserSize());
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = System.setProperty("remoteUrl", driverConfig.remoteUrl());
+        Configuration.remote = System.setProperty("remoteUrl", System.getProperty("remoteUrl", driverConfig.remoteUrl()));
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", System.setProperty("browserName", driverConfig.browserName()));
+        capabilities.setCapability("browserName", System.setProperty("browserName", System.getProperty("browserName", driverConfig.browserName())));
         capabilities.setCapability("browserVersion", System.setProperty("browserVersion", driverConfig.browserVersion()));
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
