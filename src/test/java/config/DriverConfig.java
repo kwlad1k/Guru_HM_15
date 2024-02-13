@@ -12,4 +12,6 @@ public interface DriverConfig extends Config {
 
     @Key("browser.size")
     String browserSize();
+    @Key("remote.url")
+    String remoteUrl();
 }
