@@ -18,22 +18,20 @@ public class TestBase {
         System.setProperty("environment", System.getProperty("environment", "stage"));
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
-        Configuration.browserSize = System.setProperty("browserSize", driverConfig.browserSize());
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = System.setProperty("remoteUrl", System.getProperty("remoteUrl", driverConfig.remoteUrl()));
-        SelenideLogger.addListener("allure", new AllureSelenide());
+        Configuration.browserSize = driverConfig.browserSize();
+        Configuration.remote = driverConfig.remoteUrl();
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", System.setProperty("browserName", System.getProperty("browserName", driverConfig.browserName())));
-        capabilities.setCapability("browserVersion", System.setProperty("browserVersion", driverConfig.browserVersion()));
+        capabilities.setCapability("browserName", driverConfig.browserName());
+        capabilities.setCapability("browserVersion", driverConfig.browserVersion());
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach

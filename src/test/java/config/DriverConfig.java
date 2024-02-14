@@ -2,7 +2,11 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:config/driver.properties")
+@Config.LoadPolicy(Config.LoadType.MERGE)
+@Config.Sources({
+        "system:properties",
+        "classpath:config/driver.properties"})
+
 public interface DriverConfig extends Config {
     @Key("browser.name")
     String browserName();
@@ -12,6 +16,7 @@ public interface DriverConfig extends Config {
 
     @Key("browser.size")
     String browserSize();
+
     @Key("remote.url")
     String remoteUrl();
 }
