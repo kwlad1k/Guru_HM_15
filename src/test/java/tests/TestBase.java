@@ -15,8 +15,8 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
-        System.setProperty("environment", System.getProperty("environment", "stage"));
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
+        System.setProperty("environment", System.getProperty("environment", "stage"));
 
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
@@ -25,11 +25,6 @@ public class TestBase {
         Configuration.browserVersion = driverConfig.browserVersion();
         Configuration.browserSize = driverConfig.browserSize();
         Configuration.remote = driverConfig.remoteUrl();
-
-        System.out.println(driverConfig.browserName());
-        System.out.println(driverConfig.browserVersion());
-        System.out.println(driverConfig.browserSize());
-        System.out.println(driverConfig.remoteUrl());
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
